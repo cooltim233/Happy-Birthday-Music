@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Happy Birthday</title>
+  </head>
+  <body>
+    <!-- Background music -->
+    <audio id="bg-music" loop>
+      <source src="CigarettesAfterSex-Heavenly.mp3" type="audio/mpeg" />
+      Your browser does not support the audio element.
+    </audio>
+
+    <!-- Header image -->
+    <img src="blue bf header.gif" alt="Happy Birthday Header" class="header-img" />
+
+    <!-- Main content -->
+    <div class="container" id="container">
+      <img src="blue evelope.png" alt="please" class="image-1" />
+      <img src="letter.jpg" alt="yes" class="image-2 hide" />
+      <div class="btn-group">
+        <button class="btn btn-yes">Yes</button>
+        <button class="btn btn-no">No</button>
+      </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="main.js"></script>
+    <script>
+      // Play music only if click is NOT on "No" button
+      window.addEventListener("click", (e) => {
+        if (!e.target.classList.contains("btn-no")) {
+          const music = document.getElementById("bg-music");
+          if (music && music.paused) {
+            music.play().catch((err) => {
+              console.warn("Music autoplay blocked:", err);
+            });
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
